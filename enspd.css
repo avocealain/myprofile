@@ -1,0 +1,74 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    text-align: center;
+    padding: 20px;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+canvas {
+    margin-top: 20px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+    max-width: 100%;
+    height: auto;
+}
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Badge related helpers */
+#downloadLink {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 16px;
+    background: linear-gradient(180deg,#0066cc,#004a99);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 14px rgba(0,102,204,0.25);
+    font-weight: 600;
+}
+
+button[type="submit"] {
+    background: #0066cc;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button[type="submit"]:hover {
+    background: #0055aa;
+}
+
+/* Make inputs a bit nicer */
+input[type="text"], select, input[type="file"] {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #d8e1ea;
+}
+
+@media (max-width: 520px) {
+    .container { padding: 12px; }
+    canvas { width: 320px; height: auto; }
+}
