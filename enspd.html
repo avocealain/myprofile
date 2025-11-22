@@ -1,50 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Générateur de Badge - ENSPD-UP</title>
-    <link rel="stylesheet" href="enspd.css">
+  <meta charset="UTF-8">
+  <title>Badge ENSPD-UP</title>
+  <link rel="stylesheet" href="enspd.css">
 </head>
 <body>
-    <div class="container">
-        <h1>ENSPD-UP</h1>
-        <h2>Rentrée solennelle 2025-2026</h2>
-        <h3>page en cours de construction</h3>
-     <!--   <form id="badgeForm">
-            <label for="name">Nom complet :</label>
-            <input type="text" id="name" name="name" required>
+  <div class="container">
+    <h1>ENSPD-UP</h1>
+    <h2>Rentrée solennelle 2025-2026</h2>
 
-            <label for="filiere">Filière :</label>
-            <select id="filiere" name="filiere" required>
-                <option value="Statistique Appliquée">Statistique Appliquée</option>
-                <option value="Planification">Planification</option>
-                <option value="Planification">Démographie</option>
-            </select>
+    <form id="badgeForm">
+      <label for="name">Nom complet :</label>
+      <input type="text" id="name" required>
 
-            <label for="annee">Année :</label>
-            <select id="annee" name="annee" required>
-                <option value="1ère année">Licence 1</option>
-                <option value="2ème année">Licence 2</option>
-                <option value="3ème année">Licence 3</option>
-                <option value="3ème année">Master 1</option>
-                <option value="3ème année">Master 2</option>
-            </select>
+      <label for="filiere">Filière :</label>
+      <select id="filiere" required>
+        <option value="Statistique Appliquée">Statistique Appliquée</option>
+        <option value="Planification">Planification</option>
+        <option value="Démographie">Démographie</option>
+      </select>
 
-            <label for="photo">Téléverser votre photo :</label>
-            <input type="file" id="photo" name="photo" accept="image/*" required>
+      <label for="photo">Téléverser votre photo :</label>
+      <input type="file" id="photo" accept="image/*" required>
 
-            <button type="submit">Générer le badge</button>
-        </form>
+      <button type="submit">Générer le badge</button>
+    </form>
 
-        <canvas id="badgeCanvas" width="400" height="600"></canvas>
-        <a id="downloadLink" download="badge.png" style="display:none;">Télécharger le badge</a>
+    <canvas id="badgeCanvas" width="1080" height="1620"></canvas>
+    <a id="downloadLink" download="badge.png">📥 Télécharger le badge</a>
+  </div>
 
-        <footer>
-            <p>Sponsors : BUE-ENSPD | CRİSTAL</p>
-        </footer>
-    </div>
-    <script src="enspd.js"></script>
+  <script src="enspd.js"></script>
 </body>
 </html>
--->
