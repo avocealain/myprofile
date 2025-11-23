@@ -3,6 +3,7 @@ document.getElementById('badgeForm').addEventListener('submit', function (e) {
 
   const canvas = document.getElementById('badgeCanvas');
   const ctx = canvas.getContext('2d');
+  
 
   // Taille réelle du badge = qualité parfaite
   canvas.width = 1080;
@@ -33,28 +34,29 @@ document.getElementById('badgeForm').addEventListener('submit', function (e) {
         // 📌 Position exacte du cadre photo dans ton badge HD
         const photoX = 355;  // centré sur badge 1080px
         const photoY = 510;
-        const photoWidth = 370;
-        const photoHeight = 420;
+        const photoWidth = 390;
+        const photoHeight = 480;
 
-        ctx.drawImage(photo, photoX, photoY, photoWidth, photoHeight);
+        ctx.drawImage(photo, photoX, photoY , photoWidth, photoHeight);
 
         // 🎨 Nom de l'étudiant (couleur différente)
-        ctx.font = "bold 60px Arial";
-        ctx.fillStyle = "#d60000"; // ROUGE ENSPD
-        ctx.textAlign = "center";
+        ctx.font = "bold 70px Times New Roman";
+        ctx.fillStyle = "#0420efff"; // ROUGE ENSPD
+        ctx.textAlign = "center"
+        ctx.textBaseline = "middle"
+        const yInitial = 1040;
 
-        // Position du texte "Noms et Prénoms" sur ton badge HD
-        ctx.fillText(name, canvas.width / 2, 1040);
 
-        // 🎨 Texte filière + année
-        ctx.font = "45px Arial";
+        ctx.fillText(name.toUpperCase(), 540, yInitial + (55 / 2));
+        // 🎨 Texte filière 
+        ctx.font = "45px Times New Roman";
         ctx.fillStyle = "#000";
 
         ctx.fillText(`${filiere}`, canvas.width / 2, 1120);
 
         // Lien pour télécharger
         const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = canvas.toDataURL();
+        downloadLink.href = canvas.toDataURL("image/png");
         downloadLink.style.display = "inline-block";
       };
     };
