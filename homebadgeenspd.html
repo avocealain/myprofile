@@ -93,6 +93,45 @@
         box-shadow: 0 0 60px #ffd000;
     }
 
+    /* --- FOOTER --- */
+    #siteFooter {
+        position: fixed;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.45);
+        color: rgba(255,255,255,0.95);
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-size: 13px;
+        border: 1px solid rgba(255,255,255,0.06);
+        backdrop-filter: blur(6px);
+        text-align: center;
+        z-index: 1000;
+        pointer-events: auto;
+    }
+
+    #siteFooter a {
+        color: rgba(255,255,255,0.9);
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 6px;
+    }
+
+    #siteFooter small {
+        display: block;
+        font-size: 11px;
+        color: rgba(255,255,255,0.7);
+        margin-top: 4px;
+    }
+
+    @media (max-width: 480px) {
+        #welcomeBox { padding: 20px; width: 90%; }
+        #welcomeBox h1 { font-size: 30px; }
+        #welcomeBox h2 { font-size: 16px; }
+        #enterButton { font-size: 20px; padding: 14px 28px; top: 82%; }
+    }
+
 </style>
 </head>
 
@@ -114,22 +153,28 @@
     Générer mon badge
 </button>
 
+<!-- Footer en anglais + lien vers le profil -->
+<div id="siteFooter" role="contentinfo" aria-label="Footer">
+    © <a href="https://www.facebook.com/share/1AR8PJqjrX/" target="_blank" rel="noopener">CRISTAL ENSPD</a> <span id="currentYear"></span> — All rights reserved.
+    <small>Made by <a href="https://avocealain.github.io/myprofile/" target="_blank" rel="noopener">ALAIN AVOCE</a></small>
+</div>
+
 <script>
 const canvas = document.getElementById('animationCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const centerX = canvas.width / 2;
-const centerY = canvas.height / 2;
+let centerX = canvas.width / 2;
+let centerY = canvas.height / 2;
 
 // Couleurs des lettres ENSPD 2025
 const letterColors = ["#FF3C38", "#FFB400", "#38FF3C", "#38C0FF", "#B938FF", "#FF3C38", "#FFB400"];
 const word = "ENSPD 2025";
 
-// Position aléatoire de l’effet multicolore
-const randomOffsetX = Math.random() * canvas.width * 0.08 - canvas.width * 0.04;
-const randomOffsetY = Math.random() * canvas.height * 0.06 - canvas.height * 0.03;
+// Position aléatoire de l’effet multicolore (recalculée au resize)
+let randomOffsetX = Math.random() * canvas.width * 0.08 - canvas.width * 0.04;
+let randomOffsetY = Math.random() * canvas.height * 0.06 - canvas.height * 0.03;
 
 // --- Arrière-plan répété de textes ---
 function drawBackground() {
@@ -137,7 +182,7 @@ function drawBackground() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const bgTexts = ["RENTREE SOLENNELLE", "ENSPD 2025"];
-    ctx.font = "26px Arial"; 
+    ctx.font = "26px Arial";
     ctx.fillStyle = "rgba(255,255,255,0.05)";
     ctx.textAlign = "left";
 
@@ -188,7 +233,18 @@ animate();
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    centerX = canvas.width / 2;
+    centerY = canvas.height / 2;
+    // Recalculate random offsets so the multicolor effect adapts on resize
+    randomOffsetX = Math.random() * canvas.width * 0.08 - canvas.width * 0.04;
+    randomOffsetY = Math.random() * canvas.height * 0.06 - canvas.height * 0.03;
 });
+
+// Set footer year dynamically
+const yearEl = document.getElementById('currentYear');
+if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+}
 </script>
 
 </body>
