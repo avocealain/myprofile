@@ -3,61 +3,73 @@ document.getElementById('badgeForm').addEventListener('submit', function (e) {
 
   const canvas = document.getElementById('badgeCanvas');
   const ctx = canvas.getContext('2d');
-  
-
-  // Taille réelle du badge = qualité parfaite
-  canvas.width = 1080;
-  canvas.height = 1620;
-
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const name = document.getElementById('name').value;
+  const name = document.getElementById('name').value.trim();
   const filiere = document.getElementById('filiere').value;
-  // const annee = document.getElementById('annee').value;
   const photoInput = document.getElementById('photo');
 
   const background = new Image();
-  background.src = "badgeSample.webp";
+  background.src = 'badgeSample.webp'; // ← ton flyer ENSPD 699x697
 
   background.onload = function () {
-    // Dessin du badge original à taille réelle
+    canvas.width = 699;
+    canvas.height = 697;
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-    // Chargement de la photo
     const reader = new FileReader();
     reader.onload = function (event) {
       const photo = new Image();
       photo.src = event.target.result;
 
       photo.onload = function () {
+        // 📸 Dessiner la photo avec bords arrondis
+        const photoX = 200;
+        const photoY = 223;
+        const photoWidth = 299;
+        const photoHeight = 207;
+        const radius = 20;
 
-        // 📌 Position exacte du cadre photo dans ton badge HD
-        const photoX = 355;  // centré sur badge 1080px
-        const photoY = 510;
-        const photoWidth = 390;
-        const photoHeight = 480;
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(photoX + radius, photoY);
+        ctx.lineTo(photoX + photoWidth - radius, photoY);
+        ctx.quadraticCurveTo(photoX + photoWidth, photoY, photoX + photoWidth, photoY + radius);
+        ctx.lineTo(photoX + photoWidth, photoY + photoHeight - radius);
+        ctx.quadraticCurveTo(photoX + photoWidth, photoY + photoHeight, photoX + photoWidth - radius, photoY + photoHeight);
+        ctx.lineTo(photoX + radius, photoY + photoHeight);
+        ctx.quadraticCurveTo(photoX, photoY + photoHeight, photoX, photoY + photoHeight - radius);
+        ctx.lineTo(photoX, photoY + radius);
+        ctx.quadraticCurveTo(photoX, photoY, photoX + radius, photoY);
+        ctx.closePath();
+        ctx.clip();
+        ctx.drawImage(photo, photoX, photoY, photoWidth, photoHeight);
+        ctx.restore();
 
-        ctx.drawImage(photo, photoX, photoY , photoWidth, photoHeight);
+        // ✍️ Nom complet (une seule ligne, étendu sur les bords)
+        let fontSize = 36; // taille de départ
+        ctx.font = `bold ${fontSize}px Times New Roman`;
+        ctx.fillStyle = '#000';
+        ctx.textAlign = 'center';
 
-        // 🎨 Nom de l'étudiant (couleur différente)
-        ctx.font = "bold 70px Times New Roman";
-        ctx.fillStyle = "#0420efff"; // ROUGE ENSPD
-        ctx.textAlign = "center"
-        ctx.textBaseline = "middle"
-        const yInitial = 1040;
+        // 🔧 Réduire la taille si le texte dépasse la largeur max du badge
+        while (ctx.measureText(name.toUpperCase()).width > 650 && fontSize > 12) {
+          fontSize -= 1;
+          ctx.font = `bold ${fontSize}px Times New Roman`;
+        }
 
+        ctx.fillText(name.toUpperCase(), canvas.width / 2, 466);
 
-        ctx.fillText(name.toUpperCase(), 540, yInitial + (55 / 2));
-        // 🎨 Texte filière 
-        ctx.font = "45px Times New Roman";
-        ctx.fillStyle = "#000";
+        // 📚 Filière (reste inchangée, juste en dessous du nom)
+        ctx.font = 'bold 20px Times New Roman';
+        ctx.fillStyle = '#000';
+        ctx.textAlign = 'center';
+        ctx.fillText(filiere, canvas.width / 2, 485);
 
-        ctx.fillText(`${filiere}`, canvas.width / 2, 1120);
-
-        // Lien pour télécharger
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = canvas.toDataURL("image/png");
-        downloadLink.style.display = "inline-block";
+        // 📥 Activer le lien de téléchargement
+        const link = document.getElementById('downloadLink');
+        link.href = canvas.toDataURL('image/png');
+        link.style.display = 'inline-block';
       };
     };
 
