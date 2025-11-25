@@ -13,14 +13,6 @@ body {
   margin: auto;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
 input, select {
   padding: 8px;
   border-radius: 6px;
@@ -63,4 +55,32 @@ canvas {
 }
 #downloadLink:hover {
   background: #aa0000;
+}
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  form {
+    gap: 8px;
+  }
+
+  input, select, button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  #downloadLink {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
 }
