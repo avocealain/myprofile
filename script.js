@@ -1,4 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Contact Form Handling (AJAX)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const status = document.getElementById('form-status');
+            const data = new FormData(event.target);
+            
+            fetch(event.target.action, {
+                method: contactForm.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "Merci ! Votre message a été envoyé avec succès.";
+                    status.style.color = "#27ae60"; // Green
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Oups! Il y a eu un problème lors de l'envoi.";
+                        }
+                    });
+                     status.style.color = "#e74c3c"; // Red
+                }
+            }).catch(error => {
+                status.innerHTML = "Oups! Il y a eu un problème lors de l'envoi.";
+                 status.style.color = "#e74c3c";
+            });
+        });
+    }
+
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
