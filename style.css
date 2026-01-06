@@ -535,3 +535,14 @@ footer {
         margin-top: 1rem;
     }
 }
+
+/* Ensure hamburger is visible on mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block !important;
+        z-index: 1001;
+    }
+    .nav-links {
+        z-index: 999;
+    }
+}
