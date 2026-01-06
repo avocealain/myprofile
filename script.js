@@ -1,5 +1,150 @@
+const translations = {
+    fr: {
+        nav_home: "Accueil",
+        nav_about: "À propos",
+        nav_skills: "Compétences",
+        nav_projects: "Projets",
+        nav_contact: "Contact",
+        hero_greeting: "Bonjour, je suis",
+        hero_desc_start: "Je suis passionné par",
+        hero_btn_projects: "Voir mes projets",
+        hero_btn_cv: "Télécharger mon CV",
+        about_title: "À propos de moi",
+        about_text1: "Je suis un professionnel dévoué avec une passion pour la création de solutions numériques innovantes. J'aime transformer des idées complexes en expériences utilisateur simples et élégantes.",
+        about_text2: "Toujours à l'affût des dernières technologies, je m'efforce d'écrire un code propre et performant.",
+        skills_title: "Mes Compétences",
+        skill_db: "Base de données",
+        skill_security: "Sécurité Informatique",
+        projects_title: "Mes Projets",
+        proj_1_title: "Expert en développement web",
+        proj_1_desc: "Objectif : Atteindre un niveau avancé en développement web avec la decoverte de nouvelles frameworks et technologies.",
+        proj_2_title: "Tômer C2 sunum",
+        proj_2_desc: "YTB - SCU - Tômer",
+        proj_3_title: "Site ENSPD Parakou",
+        proj_3_desc: "Développement d'un site pour les étudiants de l'ENSPD (Bénin).",
+        proj_4_title: "Sécurité informatique",
+        proj_4_desc: "Renforcement du système de sécurité d'une entreprise de vente au Bénin.",
+        proj_5_title: "ENSPD-2025",
+        proj_5_desc: "RENTREE SOLENNELLE",
+        project_view: "Voir le projet",
+        contact_title: "Me Contacter",
+        contact_placeholder_name: "Votre Nom",
+        contact_placeholder_email: "Votre Email",
+        contact_placeholder_msg: "Votre Message",
+        contact_btn_send: "Envoyer",
+        footer_rights: "&copy; 2025 Alain Gounou Avoce – Tous droits réservés"
+    },
+    en: {
+        nav_home: "Home",
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_contact: "Contact",
+        hero_greeting: "Hello, I am",
+        hero_desc_start: "I am passionate about",
+        hero_btn_projects: "View my projects",
+        hero_btn_cv: "Download my CV",
+        about_title: "About Me",
+        about_text1: "I am a dedicated professional with a passion for creating innovative digital solutions. I enjoy turning complex ideas into simple and elegant user experiences.",
+        about_text2: "Always on the lookout for the latest technologies, I strive to write clean and efficient code.",
+        skills_title: "My Skills",
+        skill_db: "Databases",
+        skill_security: "Cybersecurity",
+        projects_title: "My Projects",
+        proj_1_title: "Web Development Expert",
+        proj_1_desc: "Goal: Reach an advanced level in web development by discovering new frameworks and technologies.",
+        proj_2_title: "Tômer C2 Presentation",
+        proj_2_desc: "YTB - SCU - Tômer",
+        proj_3_title: "ENSPD Parakou Website",
+        proj_3_desc: "Development of a website for ENSPD students (Benin).",
+        proj_4_title: "Cybersecurity",
+        proj_4_desc: "Strengthening the security system of a sales company in Benin.",
+        proj_5_title: "ENSPD-2025",
+        proj_5_desc: "FORMAL REOPENING",
+        project_view: "View Project",
+        contact_title: "Contact Me",
+        contact_placeholder_name: "Your Name",
+        contact_placeholder_email: "Your Email",
+        contact_placeholder_msg: "Your Message",
+        contact_btn_send: "Send",
+        footer_rights: "&copy; 2025 Alain Gounou Avoce – All rights reserved"
+    },
+    tr: {
+        nav_home: "Anasayfa",
+        nav_about: "Hakkımda",
+        nav_skills: "Beceriler",
+        nav_projects: "Projeler",
+        nav_contact: "İletişim",
+        hero_greeting: "Merhaba, ben",
+        hero_desc_start: "Tutkulu olduğum alanlar",
+        hero_btn_projects: "Projelerimi Gör",
+        hero_btn_cv: "CV İndir",
+        about_title: "Hakkımda",
+        about_text1: "Yenilikçi dijital çözümler yaratma tutkusuna sahip, kendini işine adamış bir profesyonelem. Karmaşık fikirleri basit ve zarif kullanıcı deneyimlerine dönüştürmekten keyif alıyorum.",
+        about_text2: "Her zaman en son teknolojileri takip ederek, temiz ve yüksek performanslı kod yazmaya gayret ediyorum.",
+        skills_title: "Becerilerim",
+        skill_db: "Veritabanları",
+        skill_security: "Siber Güvenlik",
+        projects_title: "Projelerim",
+        proj_1_title: "Web Geliştirme Uzmanı",
+        proj_1_desc: "Hedef: Yeni çerçeveler ve teknolojiler keşfederek web geliştirmede ileri bir seviyeye ulaşmak.",
+        proj_2_title: "Tömer C2 Sunumu",
+        proj_2_desc: "YTB - SCU - Tömer",
+        proj_3_title: "ENSPD Parakou Web Sitesi",
+        proj_3_desc: "ENSPD (Benin) öğrencileri için bir web sitesi geliştirilmesi.",
+        proj_4_title: "Siber Güvenlik",
+        proj_4_desc: "Benin'deki bir satış şirketinin güvenlik sisteminin güçlendirilmesi.",
+        proj_5_title: "ENSPD-2025",
+        proj_5_desc: "RESMİ AÇILIŞ",
+        project_view: "Projeyi Gör",
+        contact_title: "Bana Ulaşın",
+        contact_placeholder_name: "Adınız",
+        contact_placeholder_email: "E-postanız",
+        contact_placeholder_msg: "Mesajınız",
+        contact_btn_send: "Gönder",
+        footer_rights: "&copy; 2025 Alain Gounou Avoce – Tüm hakları saklıdır"
+    }
+};
+
+function changeLanguage(lang) {
+    if (!translations[lang]) return;
+
+    // Update text content
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+
+    // Update placeholders
+    document.querySelectorAll('[data-key-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-key-placeholder');
+        if (translations[lang][key]) {
+            element.setAttribute('placeholder', translations[lang][key]);
+        }
+    });
+    
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        // Simple check, or usage data-lang attribute if added
+         if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Save preference
+    localStorage.setItem('preferredLanguage', lang);
+    document.documentElement.lang = lang;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+    changeLanguage(savedLang);
+
     // Contact Form Handling (AJAX)
+
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', async function(event) {
