@@ -1,537 +1,473 @@
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --text-color: #333;
-    --bg-light: #f4f6f7;
-    --white: #ffffff;
-    --transition: all 0.3s ease;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-/* Header & Nav */
-header {
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    font-weight: 500;
-    color: var(--primary-color);
-    transition: var(--transition);
-}
-
-.nav-links a:hover {
-    color: var(--secondary-color);
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); /* Deep space look */
-    text-align: center;
-    padding: 0 1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-#hero-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Profile Picture / Sticker Area */
-.profile-wrapper {
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-.profile-circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
-    border: 2px solid var(--secondary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
-    animation: floatProfile 6s ease-in-out infinite;
-    overflow: hidden;
-}
-
-.profile-circle i {
-    font-size: 4rem;
-    color: var(--white);
-    z-index: 2;
-}
-
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-/* Sticker/Hologram Effect */
-.profile-circle::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(52, 152, 219, 0.3),
-        transparent
-    );
-    animation: shine 4s infinite linear;
-    z-index: 1;
-}
-
-@keyframes floatProfile {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-@keyframes shine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--white);
-}
-
-.highlight {
-    color: var(--secondary-color);
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: #cbd5e1;
-    min-height: 2rem;
-}
-
-.typing-text {
-    font-weight: 600;
-    color: var(--secondary-color);
-}
-
-.cursor {
-    display: inline-block;
-    width: 3px;
-    background-color: var(--secondary-color);
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background: var(--secondary-color);
-    color: var(--white);
-    border-radius: 50px;
-    font-weight: 600;
-    transition: var(--transition);
-    border: 2px solid var(--secondary-color);
-    margin: 0.5rem;
-}
-
-.btn:hover {
-    background: transparent;
-    color: var(--secondary-color);
-}
-
-.btn-outline {
-    background: transparent;
-    color: var(--secondary-color);
-}
-
-.btn-outline:hover {
-    background: var(--secondary-color);
-    color: var(--white);
-}
-
-/* Sections General */
-.section {
-    padding: 5rem 1rem;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: var(--secondary-color);
-    margin: 10px auto 0;
-}
-
-.bg-light {
-    background-color: var(--bg-light);
-}
-
-/* About */
-.about-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Skills */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
-    text-align: center;
-}
-
-.skill-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: var(--transition);
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-}
-
-.skill-card i {
-    font-size: 3rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-/* Projects */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: var(--transition);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-.project-image {
-    height: 200px;
-    background-color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.placeholder-img {
-    color: #888;
-    font-weight: bold;
-}
-
-.project-info {
-    padding: 1.5rem;
-}
-
-.project-info h3 {
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-.project-info p {
-    color: #666;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-}
-
-.btn-small {
-    color: var(--secondary-color);
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.btn-small:hover {
-    text-decoration: underline;
-}
-
-/* Contact */
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.info-item i {
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-    margin-right: 1rem;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: inherit;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--secondary-color);
-}
-
-/* Footer */
-footer {
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 2rem 0;
-    text-align: center;
-}
-
-.social-links {
-    margin-top: 1rem;
-}
-
-.social-links a {
-    color: var(--white);
-    font-size: 1.5rem;
-    margin: 0 0.5rem;
-    transition: var(--transition);
-}
-
-.social-links a:hover {
-    color: var(--secondary-color);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .section-title {
-        font-size: 2rem;
+const translations = {
+    fr: {
+        nav_home: "Accueil",
+        nav_about: "À propos",
+        nav_skills: "Compétences",
+        nav_projects: "Projets",
+        nav_contact: "Contact",
+        hero_greeting: "Bonjour, je suis",
+        hero_desc_start: "Je suis passionné par",
+        hero_btn_projects: "Voir mes projets",
+        hero_btn_cv: "Télécharger mon CV",
+        about_title: "À propos de moi",
+        about_text1: "Je suis un professionnel dévoué avec une passion pour la création de solutions numériques innovantes. J'aime transformer des idées complexes en expériences utilisateur simples et élégantes.",
+        about_text2: "Toujours à l'affût des dernières technologies, je m'efforce d'écrire un code propre et performant.",
+        skills_title: "Mes Compétences",
+        skill_db: "Base de données",
+        skill_security: "Sécurité Informatique",
+        projects_title: "Mes Projets",
+        proj_1_title: "Expert en développement web",
+        proj_1_desc: "Objectif : Atteindre un niveau avancé en développement web avec la decoverte de nouvelles frameworks et technologies.",
+        proj_2_title: "Tômer C2 sunum",
+        proj_2_desc: "YTB - SCU - Tômer",
+        proj_3_title: "Site ENSPD Parakou",
+        proj_3_desc: "Développement d'un site pour les étudiants de l'ENSPD (Bénin).",
+        proj_4_title: "Sécurité informatique",
+        proj_4_desc: "Renforcement du système de sécurité d'une entreprise de vente au Bénin.",
+        proj_5_title: "ENSPD-2025",
+        proj_5_desc: "RENTREE SOLENNELLE",
+        project_view: "Voir le projet",
+        contact_title: "Me Contacter",
+        contact_placeholder_name: "Votre Nom",
+        contact_placeholder_email: "Votre Email",
+        contact_placeholder_msg: "Votre Message",
+        contact_btn_send: "Envoyer",
+        footer_rights: "&copy; 2025 Alain Gounou Avoce – Tous droits réservés",
+        typing_phrases: ["l'Analyse de Données", "la Cybersécurité", "le Développement Web"]
+    },
+    en: {
+        nav_home: "Home",
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_contact: "Contact",
+        hero_greeting: "Hello, I am",
+        hero_desc_start: "I am passionate about",
+        hero_btn_projects: "View my projects",
+        hero_btn_cv: "Download my CV",
+        about_title: "About Me",
+        about_text1: "I am a dedicated professional with a passion for creating innovative digital solutions. I enjoy turning complex ideas into simple and elegant user experiences.",
+        about_text2: "Always on the lookout for the latest technologies, I strive to write clean and efficient code.",
+        skills_title: "My Skills",
+        skill_db: "Databases",
+        skill_security: "Cybersecurity",
+        projects_title: "My Projects",
+        proj_1_title: "Web Development Expert",
+        proj_1_desc: "Goal: Reach an advanced level in web development by discovering new frameworks and technologies.",
+        proj_2_title: "Tômer C2 Presentation",
+        proj_2_desc: "YTB - SCU - Tômer",
+        proj_3_title: "ENSPD Parakou Website",
+        proj_3_desc: "Development of a website for ENSPD students (Benin).",
+        proj_4_title: "Cybersecurity",
+        proj_4_desc: "Strengthening the security system of a sales company in Benin.",
+        proj_5_title: "ENSPD-2025",
+        proj_5_desc: "FORMAL REOPENING",
+        project_view: "View Project",
+        contact_title: "Contact Me",
+        contact_placeholder_name: "Your Name",
+        contact_placeholder_email: "Your Email",
+        contact_placeholder_msg: "Your Message",
+        contact_btn_send: "Send",
+        footer_rights: "&copy; 2025 Alain Gounou Avoce – All rights reserved",
+        typing_phrases: ["Data Analysis", "Cybersecurity", "Web Development"]
+    },
+    tr: {
+        nav_home: "Anasayfa",
+        nav_about: "Hakkımda",
+        nav_skills: "Beceriler",
+        nav_projects: "Projeler",
+        nav_contact: "İletişim",
+        hero_greeting: "Merhaba, ben",
+        hero_desc_start: "Tutkulu olduğum alanlar",
+        hero_btn_projects: "Projelerimi Gör",
+        hero_btn_cv: "CV İndir",
+        about_title: "Hakkımda",
+        about_text1: "Yenilikçi dijital çözümler yaratma tutkusuna sahip, kendini işine adamış bir profesyonelem. Karmaşık fikirleri basit ve zarif kullanıcı deneyimlerine dönüştürmekten keyif alıyorum.",
+        about_text2: "Her zaman en son teknolojileri takip ederek, temiz ve yüksek performanslı kod yazmaya gayret ediyorum.",
+        skills_title: "Becerilerim",
+        skill_db: "Veritabanları",
+        skill_security: "Siber Güvenlik",
+        projects_title: "Projelerim",
+        proj_1_title: "Web Geliştirme Uzmanı",
+        proj_1_desc: "Hedef: Yeni çerçeveler ve teknolojiler keşfederek web geliştirmede ileri bir seviyeye ulaşmak.",
+        proj_2_title: "Tömer C2 Sunumu",
+        proj_2_desc: "YTB - SCU - Tömer",
+        proj_3_title: "ENSPD Parakou Web Sitesi",
+        proj_3_desc: "ENSPD (Benin) öğrencileri için bir web sitesi geliştirilmesi.",
+        proj_4_title: "Siber Güvenlik",
+        proj_4_desc: "Benin'deki bir satış şirketinin güvenlik sisteminin güçlendirilmesi.",
+        proj_5_title: "ENSPD-2025",
+        proj_5_desc: "RESMİ AÇILIŞ",
+        project_view: "Projeyi Gör",
+        contact_title: "Bana Ulaşın",
+        contact_placeholder_name: "Adınız",
+        contact_placeholder_email: "E-postanız",
+        contact_placeholder_msg: "Mesajınız",
+        contact_btn_send: "Gönder",
+        footer_rights: "&copy; 2025 Alain Gounou Avoce – Tüm hakları saklıdır",
+        typing_phrases: ["Veri Analizi", "Siber Güvenlik", "Web Geliştirme"]
     }
+};
+
+let typingState = {
+    element: null,
+    phrases: [],
+    phraseIndex: 0,
+    charIndex: 0,
+    isDeleting: false,
+    timeoutId: null
+};
+
+function type() {
+    if (!typingState.element || typingState.phrases.length === 0) return;
+
+    const currentPhrase = typingState.phrases[typingState.phraseIndex];
+    let typeSpeed = 100;
     
-    .hero-content h1 {
-        font-size: 2.5rem;
+    if (typingState.isDeleting) {
+        typingState.element.textContent = currentPhrase.substring(0, typingState.charIndex - 1);
+        typingState.charIndex--;
+        typeSpeed = 50; 
+    } else {
+        typingState.element.textContent = currentPhrase.substring(0, typingState.charIndex + 1);
+        typingState.charIndex++;
+        typeSpeed = 100;
     }
+
+    if (!typingState.isDeleting && typingState.charIndex === currentPhrase.length) {
+        typingState.isDeleting = true;
+        typeSpeed = 2000; // Pause at end of phrase
+    } else if (typingState.isDeleting && typingState.charIndex === 0) {
+        typingState.isDeleting = false;
+        typingState.phraseIndex = (typingState.phraseIndex + 1) % typingState.phrases.length;
+        typeSpeed = 500; // Pause before new phrase
+    }
+
+    typingState.timeoutId = setTimeout(type, typeSpeed);
 }
 
-@media (max-width: 768px) {
-    .navbar .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        padding: 2rem;
-        text-align: center;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+function changeLanguage(lang) {
+    if (!translations[lang]) return;
+
+    // Update text content
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+
+    // Update typing effect
+    if (translations[lang].typing_phrases) {
+        typingState.phrases = translations[lang].typing_phrases;
+        // Reset typing animation
+        if (typingState.timeoutId) clearTimeout(typingState.timeoutId);
+        typingState.phraseIndex = 0;
+        typingState.charIndex = 0;
+        typingState.isDeleting = false;
+        if (typingState.element) {
+             typingState.element.textContent = '';
+             type();
+        }
     }
 
-    .navbar .nav-links.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
+    // Update placeholders
+    document.querySelectorAll('[data-key-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-key-placeholder');
+        if (translations[lang][key]) {
+            element.setAttribute('placeholder', translations[lang][key]);
+        }
+    });
     
-    .hero-content p {
-        font-size: 1.2rem;
-    }
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        // Simple check, or usage data-lang attribute if added
+         if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
+            btn.classList.add('active');
+        }
+    });
 
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
+    // Save preference
+    localStorage.setItem('preferredLanguage', lang);
+    document.documentElement.lang = lang;
 }
 
-@media (max-width: 480px) {
-    .navbar {
-        padding: 1rem;
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Typing Effect Initialization ---
+    // Must be done BEFORE changeLanguage is called so elements exist
+    typingState.element = document.querySelector('.typing-text');
+
+    const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+    changeLanguage(savedLang);
+
+    // Initial type call if not triggered by changeLanguage (fallback)
+    // if (!typingState.timeoutId) type(); // changeLanguage handles it usually
+
+    // Contact Form Handling (AJAX)
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const status = document.getElementById('form-status');
+            const data = new FormData(event.target);
+            
+            fetch(event.target.action, {
+                method: contactForm.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "Merci ! Votre message a été envoyé avec succès.";
+                    status.style.color = "#27ae60"; // Green
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Oups! Il y a eu un problème lors de l'envoi.";
+                        }
+                    });
+                     status.style.color = "#e74c3c"; // Red
+                }
+            }).catch(error => {
+                status.innerHTML = "Oups! Il y a eu un problème lors de l'envoi.";
+                 status.style.color = "#e74c3c";
+            });
+        });
     }
 
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-    }
-    
-    .btn {
-        display: block;
-        width: 100%;
-        margin: 0.5rem 0;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-    
-    .skill-card {
-        padding: 1rem;
-    }
-    
-    .skill-card i {
-        font-size: 2rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* Language Selector Styles */
-.lang-selector {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
 
-.lang-btn {
-    background: transparent;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: var(--transition);
-}
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
 
-.lang-btn:hover, .lang-btn.active {
-    background: var(--primary-color);
-    color: var(--white);
-}
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
 
-@media (max-width: 768px) {
-    .lang-selector {
-        justify-content: center;
-        margin-top: 1rem;
+    // Smooth Scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Calculate header height for offset
+                const headerOffset = document.querySelector('header').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Navbar scroll effect (optional: add shadow on scroll)
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        } else {
+            header.style.boxShadow = 'none';
+        }
+    });
+
+    // --- Canvas Particle Animation ---
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    let particlesArray;
+
+    // Set canvas size
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
+    });
+
+    // Mouse position
+    let mouse = {
+        x: null,
+        y: null,
+        radius: (canvas.height/100) * (canvas.width/100)
     }
-}
+
+    window.addEventListener('mousemove', (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+    
+    window.addEventListener('mouseout', () => {
+        mouse.x = null;
+        mouse.y = null; 
+    });
+
+    // Create Particle Class
+    class Particle {
+        constructor(x, y, directionX, directionY, size, color, type) {
+            this.x = x;
+            this.y = y;
+            this.directionX = directionX;
+            this.directionY = directionY;
+            this.size = size;
+            this.color = color;
+            this.type = type;
+            
+            // Assign symbol based on domain (Data, Cyber, Web)
+            if (this.type === 'data') {
+                // Binaires et stats pour Data
+                const symbols = ['1', '0', '10', '01', '|'];
+                this.text = symbols[Math.floor(Math.random() * symbols.length)];
+            } else if (this.type === 'cyber') {
+                // Caractères spéciaux et hachage pour Cyber
+                const symbols = ['*', '#', '$_', '0x', '::'];
+                this.text = symbols[Math.floor(Math.random() * symbols.length)];
+            } else {
+                // Syntaxe code pour Web
+                const symbols = ['{ }', '< >', '</>', '();', '[]'];
+                this.text = symbols[Math.floor(Math.random() * symbols.length)];
+            }
+        }
+
+        // Method to draw individual particle
+        draw() {
+            ctx.font = 'bold ' + (10 + this.size * 5) + 'px "Courier New", monospace';
+            
+            // Glow Effect
+            ctx.shadowBlur = 5;
+            ctx.shadowColor = this.color;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.text, this.x, this.y);
+            
+            // Reset shadow
+            ctx.shadowBlur = 0; 
+        }
+
+        // Check particle position, check mouse position, move the particle, draw the particle
+        update() {
+            // Check if particle is still within canvas
+            if (this.x > canvas.width || this.x < 0) {
+                this.directionX = -this.directionX;
+            }
+            if (this.y > canvas.height || this.y < 0) {
+                this.directionY = -this.directionY;
+            }
+
+            // Check collision detection - mouse position / particle position
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.sqrt(dx*dx + dy*dy);
+            if (distance < mouse.radius + this.size){
+                // Reactivity
+                if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
+                    this.x += 2; 
+                }
+                if (mouse.x > this.x && this.x > this.size * 10) {
+                    this.x -= 2;
+                }
+                if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
+                    this.y += 2;
+                }
+                if (mouse.y > this.y && this.y > this.size * 10) {
+                    this.y -= 2;
+                }
+            }
+            // Move particle
+            this.x += this.directionX;
+            this.y += this.directionY;
+            // Draw particle
+            this.draw();
+        }
+    }
+
+    // Create particle array
+    function init() {
+        particlesArray = [];
+        let numberOfParticles = (canvas.height * canvas.width) / 9000;
+        
+        for (let i = 0; i < numberOfParticles; i++) {
+            let size = (Math.random() * 1.5) + 0.5; // Taille fine
+            let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+            let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+            let directionX = (Math.random() * 0.4) - 0.2; // Mouvement flottant
+            let directionY = (Math.random() * 0.4) - 0.2;
+            
+            // Choix du type et couleur associée
+            let typeRandom = Math.random();
+            let type, color;
+            
+            if (typeRandom < 0.33) {
+                type = 'data';
+                color = '#00f3ff'; // Cyan (Data)
+            } else if (typeRandom < 0.66) {
+                type = 'cyber';
+                color = '#00ff41'; // Matrix Green (Cyber)
+            } else {
+                type = 'web';
+                color = '#bd00ff'; // Purple/Violet (Web)
+            }
+            
+            // Randomly insert white for sparkle
+            if (Math.random() < 0.1) color = '#ffffff';
+
+            particlesArray.push(new Particle(x, y, directionX, directionY, size, color, type));
+        }
+    }
+
+    // Animation Loop
+    function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0,0,innerWidth, innerHeight);
+
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+        }
+        connect();
+    }
+
+    // Connect particles with lines if close enough
+    function connect() {
+        let opacityValue = 1;
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let distance = (( particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                if (distance < (canvas.width/9) * (canvas.height/9)) {
+                    opacityValue = 1 - (distance/15000);
+                    // Dynamic gradient lines
+                    ctx.strokeStyle = 'rgba(100, 200, 255,' + (opacityValue * 0.15) + ')'; 
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    init();
+    animate();
+});
