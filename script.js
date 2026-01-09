@@ -200,7 +200,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Must be done BEFORE changeLanguage is called so elements exist
     typingState.element = document.querySelector('.typing-text');
 
-    const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+    // Language detection logic
+    let defaultLang = 'en'; // Default fallback to English as requested
+    const browserLang = navigator.language || navigator.userLanguage;
+    const userLangCode = browserLang ? browserLang.split('-')[0] : 'en';
+
+    if (translations[userLangCode]) {
+        defaultLang = userLangCode;
+    }
+
+    // Use saved preference if available, otherwise use detected default
+    const savedLang = localStorage.getItem('preferredLanguage') || defaultLang;
     changeLanguage(savedLang);
 
     // Initial type call if not triggered by changeLanguage (fallback)
