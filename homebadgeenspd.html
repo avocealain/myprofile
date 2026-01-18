@@ -155,7 +155,9 @@
 
 <!-- Footer en anglais + lien vers le profil -->
 <div id="siteFooter" role="contentinfo" aria-label="Footer">
+    
     © <a href="https://www.facebook.com/share/1AR8PJqjrX/" target="_blank" rel="noopener">CRISTAL ENSPD</a> <span id="currentYear"></span> — All rights reserved.
+
 <script>
 const canvas = document.getElementById('animationCanvas');
 const ctx = canvas.getContext('2d');
@@ -165,15 +167,7 @@ canvas.height = window.innerHeight;
 let centerX = canvas.width / 2;
 let centerY = canvas.height / 2;
 
-// Couleurs des lettres ENSPD 2025
-const letterColors = ["#FF3C38", "#FFB400", "#38FF3C", "#38C0FF", "#B938FF", "#FF3C38", "#FFB400"];
-const word = "ENSPD 2025";
-
-// Position aléatoire de l’effet multicolore (recalculée au resize)
-let randomOffsetX = Math.random() * canvas.width * 0.08 - canvas.width * 0.04;
-let randomOffsetY = Math.random() * canvas.height * 0.06 - canvas.height * 0.03;
-
-// --- Arrière-plan répété de textes ---
+// Couleurs des lettres ENSPD 202// --- Arrière-plan répété de textes ---
 function drawBackground() {
     ctx.fillStyle = "#111";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -191,17 +185,6 @@ function drawBackground() {
     }
 }
 
-// -- Grand ENSPD flou au centre --
-function drawGhost() {
-    ctx.save();
-    ctx.globalAlpha = 0.08;
-    ctx.font = "260px Arial";
-    ctx.fillStyle = "white";
-    ctx.textAlign = "center";
-    ctx.filter = "blur(7px)";
-    ctx.fillText("ENSPD", centerX, centerY + 60);
-    ctx.restore();
-}
 
 // -- ENSPD 2025 multicolore animé --
 function drawMainENSPD() {
