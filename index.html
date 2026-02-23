@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio d'Alain Gounou Avoce - Expert en Développement Web, Analyse de Données et Cybersécurité. Basé au Bénin et en Turquie.">
+    <meta name="keywords" content="Alain Avoce, Alain Gounou Avoce, Avoce, Alain, Portfolio, Développeur Web, Data Scientist, Bénin, Turquie, Sivas, ENSPD, Cybersécurité">
+    <meta name="author" content="Alain Gounou Avoce">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://avocealain.github.io/myprofile/">
+    <meta property="og:title" content="Portfolio - Alain Gounou Avoce">
+    <meta property="og:description" content="Découvrez mes projets et compétences en développement web et analyse de données.">
+    <meta property="og:image" content="https://avocealain.github.io/myprofile/images/preview.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://avocealain.github.io/myprofile/">
+    <meta property="twitter:title" content="Portfolio - Alain Gounou Avoce">
+    <meta property="twitter:description" content="Découvrez mes projets et compétences en développement web et analyse de données.">
+    <meta property="twitter:image" content="https://avocealain.github.io/myprofile/images/preview.jpg">
+
+    <title>Portfolio - Alain Gounou Avoce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Alain Gounou Avoce</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-key="nav_home">Accueil</a></li>
+                <li><a href="#about" data-key="nav_about">À propos</a></li>
+                <li><a href="#skills" data-key="nav_skills">Compétences</a></li>
+                <li><a href="#projects" data-key="nav_projects">Projets</a></li>
+                <li><a href="#contact" data-key="nav_contact">Contact</a></li>
+                <li class="lang-selector">
+                    <button class="lang-btn active" onclick="changeLanguage('fr')" data-lang="fr">FR</button>
+                    <button class="lang-btn" onclick="changeLanguage('en')" data-lang="en">EN</button>
+                    <button class="lang-btn" onclick="changeLanguage('tr')" data-lang="tr">TR</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-content">
+                <div class="profile-wrapper">
+                    <div class="profile-circle">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                </div>
+                <h1><span data-key="hero_greeting">Bonjour, je suis</span> <span class="highlight">Alain Gounou Avoce</span></h1>
+                <p><span data-key="hero_desc_start">Je suis passionné par</span> <span class="typing-text"></span><span class="cursor">|</span></p>
+                <a href="#projects" class="btn" data-key="hero_btn_projects">Voir mes projets</a>
+                <a href="Alain_Avoce_cv_fr.pdf" class="btn btn-outline" target="_blank" data-key="hero_btn_cv">Télécharger mon CV</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title" data-key="about_title">À propos de moi</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p data-key="about_text1">Je suis un professionnel dévoué avec une passion pour la création de solutions numériques innovantes. J'aime transformer des idées complexes en expériences utilisateur simples et élégantes.</p>
+                        <p data-key="about_text2">Toujours à l'affût des dernières technologies, je m'efforce d'écrire un code propre et performant.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title" data-key="skills_title">Mes Compétences</h2>
+                <div class="skills-grid">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/HTML" class="skill-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML5 & CSS3</h3>
+                    </a>
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" class="skill-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript</h3>
+                    </a>
+                    <a href="https://fr.react.dev/" class="skill-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-react"></i>
+                        <h3>React / Frameworks</h3>
+                    </a>
+                    <a href="https://sql.sh/" class="skill-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-database"></i>
+                        <h3 data-key="skill_db">Base de données</h3>
+                    </a>
+                    <a href="https://git-scm.com/" class="skill-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-code-branch"></i>
+                        <h3>Git & GitHub</h3>
+                    </a>
+                    <a href="https://owasp.org/" class="skill-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3 data-key="skill_security">Sécurité Informatique</h3>
+                    </a>
+                    <a href="https://laravel.com/" class="skill-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-laravel"></i>
+                        <h3>Laravel</h3>
+                    </a>
+                    <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Responsive_Design" class="skill-card" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Responsive Design</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title" data-key="projects_title">Mes Projets</h2>
+
+                <h3 class="project-subtitle" data-key="status_ongoing">En Cours <i class="fas fa-spinner fa-spin" style="font-size: 0.8em; margin-left: 10px;"></i></h3>
+                <div class="projects-grid" style="margin-bottom: 3rem;">
+
+                <div class="project-card" tabindex="0">
+                        <div class="project-image">
+                            <div class="placeholder-img">E-Learning</div>
+                        </div>
+                        <div class="project-tooltip" data-detail-key="proj_elearning_detail"></div>
+                        <div class="project-info">
+                            <h3 data-key="proj_elearning_title">Plateforme E-Learning</h3>
+                            <p data-key="proj_elearning_desc">Mise en place d'une plateforme d'apprentissage à distance pour le Bénin.</p>
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <a href="elearning-images.html" class="btn-small" target="_blank" rel="noopener" data-key="project_view_images">Voir les images</a>
+                                <a href="https://elearning-app-5afh.onrender.com/" class="btn-small" target="_blank" rel="noopener" data-key="project_view_demo">Voir la démo</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" tabindex="0">
+                        <div class="project-image">
+                            <div class="placeholder-img">WEB</div>
+                        </div>
+                        <div class="project-tooltip" data-detail-key="proj_3_detail"></div>
+                        <div class="project-info">
+                            <h3 data-key="proj_3_title">Mentorat en Développement Web</h3>
+                            <p data-key="proj_3_desc">Programme de formation bénévole visant l'initiation et le perfectionnement technique.</p>
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <a href="teaching-images.html" class="btn-small" target="_blank" rel="noopener" data-key="proj_3_btn_images">Voir les images</a>
+                                <a href="https://enspdlearning.enspd.workers.dev/" class="btn-small" target="_blank" rel="noopener" data-key="proj_3_btn_platform">Voir la plateforme</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="project-subtitle" data-key="status_completed">Accomplis <i class="fas fa-check-circle" style="color: #27ae60; font-size: 0.8em; margin-left: 10px;"></i></h3>
+                <div class="projects-grid">
+                    <div class="project-card" tabindex="0">
+                        <div class="project-image">
+                            <div class="placeholder-img">Web Dev</div>
+                        </div>
+                        <div class="project-tooltip" data-detail-key="proj_1_detail"></div>
+                        <div class="project-info">
+                            <h3 data-key="proj_1_title">Expert en développement web</h3>
+                            <p data-key="proj_1_desc">Objectif : Atteindre un niveau avancé en développement web avec la decouverte de nouvelles frameworks et technologies.</p>
+                            <a href="https://drive.google.com/file/d/1Hafn49fEPLWn0vy2Rp0VkylGcfKGS96R/view?usp=drive_link" class="btn-small" target="_blank" rel="noopener" data-key="project_view">Voir le Certificat</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" tabindex="0">
+                        <div class="project-image">
+                            <div class="placeholder-img">Tômer C2</div>
+                        </div>
+                        <div class="project-tooltip" data-detail-key="proj_2_detail"></div>
+                        <div class="project-info">
+                            <h3 data-key="proj_2_title">Tômer C2 sunum</h3>
+                            <p data-key="proj_2_desc">YTB - SCU - Tômer</p>
+                            <a href="https://prezi.com/view/vVNnZUyypRWXDWqY1B0t/" class="btn-small" target="_blank" rel="noopener" data-key="project_view">Voir le projet</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" tabindex="0">
+                        <div class="project-image">
+                            <div class="placeholder-img">ENSPD 2025</div>
+                        </div>
+                        <div class="project-tooltip" data-detail-key="proj_5_detail"></div>
+                        <div class="project-info">
+                            <h3 data-key="proj_5_title">ENSPD-2025</h3>
+                            <p data-key="proj_5_desc">RENTREE SOLENNELLE</p>
+                            <a href="#" class="btn-small" target="_blank" rel="noopener" data-key="project_view">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title" data-key="contact_title">Me Contacter</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>avocealain1@gmail.com</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+90 535 934 67 28</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Sivas, Türkiye</p>
+                        </div>
+                    </div>
+                    <form id="contact-form" action="https://formspree.io/f/mqeaogpb" method="POST" class="contact-form">
+                        <input type="text" name="name" placeholder="Votre Nom" required data-key-placeholder="contact_placeholder_name">
+                        <input type="email" name="email" placeholder="Votre Email" required data-key-placeholder="contact_placeholder_email">
+                        <textarea name="message" placeholder="Votre Message" rows="5" required data-key-placeholder="contact_placeholder_msg"></textarea>
+                        <button type="submit" class="btn" data-key="contact_btn_send">Envoyer</button>
+                        <p id="form-status" style="margin-top: 10px; font-weight: bold;"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-key="footer_rights">&copy; 2025 Alain Gounou Avoce – Tous droits réservés</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/alain-avoce"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/avocealain"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/alain.avoce.gounou"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
