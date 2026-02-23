@@ -15,12 +15,17 @@ Vous avez deux options principales pour héberger votre site : GitHub Pages et C
 3.  **Exécutez les commandes suivantes** (copiez-collez une par une):
 
     ```bash
-    git init
     git add .
-    git commit -m "Déploiement initial du portfolio"
+    git commit -m "Mise à jour du portfolio"
     git branch -M main
     git remote add origin https://github.com/avocealain/myprofile.git
-    git push -u origin main
+    # Si le remote existe déjà, utilisez: git remote set-url origin https://github.com/avocealain/myprofile.git
+    
+    # Si c'est la première fois depuis ce dossier (force la mise à jour) :
+    git push -f origin main
+    
+    # Pour les prochaines fois :
+    # git push
     ```
 
     > **Note:** Si vous avez déjà configuré `origin`, utilisez `git remote set-url origin https://github.com/avocealain/myprofile.git`.
