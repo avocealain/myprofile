@@ -131,7 +131,7 @@
                         <div class="project-info">
                             <h3 data-key="proj_elearning_title">Plateforme E-Learning</h3>
                             <p data-key="proj_elearning_desc">Mise en place d'une plateforme d'apprentissage à distance pour le Bénin.</p>
-                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <div style="display: flex; gap: 1em; flex-wrap: wrap;">
                                 <a href="elearning-images.html" class="btn-small" target="_blank" rel="noopener" data-key="project_view_images">Voir les images</a>
                                 <a href="https://elearning-app-5afh.onrender.com/" class="btn-small" target="_blank" rel="noopener" data-key="project_view_demo">Voir la démo</a>
                             </div>
@@ -146,7 +146,7 @@
                         <div class="project-info">
                             <h3 data-key="proj_3_title">Mentorat en Développement Web</h3>
                             <p data-key="proj_3_desc">Programme de formation bénévole visant l'initiation et le perfectionnement technique.</p>
-                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <div style="display: flex; gap: 1em; flex-wrap: wrap;">
                                 <a href="teaching-images.html" class="btn-small" target="_blank" rel="noopener" data-key="proj_3_btn_images">Voir les images</a>
                                 <a href="https://enspdlearning.enspd.workers.dev/" class="btn-small" target="_blank" rel="noopener" data-key="proj_3_btn_platform">Voir la plateforme</a>
                             </div>
@@ -213,13 +213,26 @@
                             <p>Sivas, Türkiye</p>
                         </div>
                     </div>
-                    <form id="contact-form" action="https://formspree.io/f/mqeaogpb" method="POST" class="contact-form">
+                    <!-- <form id="contact-form" action="https://formspree.io/f/mqeaogpb" method="POST" class="contact-form">
                         <input type="text" name="name" placeholder="Votre Nom" required data-key-placeholder="contact_placeholder_name">
                         <input type="email" name="email" placeholder="Votre Email" required data-key-placeholder="contact_placeholder_email">
                         <textarea name="message" placeholder="Votre Message" rows="5" required data-key-placeholder="contact_placeholder_msg"></textarea>
                         <button type="submit" class="btn" data-key="contact_btn_send">Envoyer</button>
-                        <p id="form-status" style="margin-top: 10px; font-weight: bold;"></p>
-                    </form>
+                        <p id="form-status" style="margin-top: 10px; font-weight: bold;"></p> -->
+                        <form action="https://submit-form.com/o2Q0oKu5Y">
+                          <label for="name">Name</label>
+                          <input type="text" id="name" name="name" placeholder="Name" required="" />
+                          <label for="email">Email</label>
+                          <input type="email" id="email" name="email" placeholder="Email" required="" />
+                          <label for="message">Message</label>
+                          <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Message"
+                            required=""
+                            ></textarea>
+                          <button type="submit">Send</button>
+                        </form>
                 </div>
             </div>
         </section>
