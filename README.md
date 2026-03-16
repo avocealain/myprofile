@@ -22,3 +22,4 @@ Voir le fichier [DEPLOYMENT.md](DEPLOYMENT.md) pour les instructions détaillée
 ---
 
 © 2026 Alain Gounou Avoce. Tous droits réservés.
+"# portfolio1" 
