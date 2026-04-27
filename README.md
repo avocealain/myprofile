@@ -1,6 +1,6 @@
 # Portfolio - Alain Gounou Avoce
 
-Bienvenue sur le dépôt du Portfolio d'Alain Gounou Avoce, Expert en Développement Web, Analyse de Données et Cybersécurité (Bénin / Turquie).
+Bienvenue sur le dépôt du Portfolio d'Alain Gounou Avoce, Expert en Développement Web, étudiant en Analyse de Données et en Cybersécurité.
 
 Ce projet présente mes compétences, mon parcours et mes projets réalisés.
 
